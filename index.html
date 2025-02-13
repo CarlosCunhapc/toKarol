@@ -20,6 +20,13 @@
         border-radius: 10px;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         margin-bottom: 20px;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+      .show {
+        opacity: 1;
+        transform: translateY(0);
       }
       h1 {
         color: #d63384;
@@ -38,6 +45,14 @@
         gap: 10px;
         margin-top: 20px;
       }
+      .gallery img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 2px solid #d63384;
+      }
       .gallery-small img {
         width: 90px;
         height: 90px;
@@ -53,8 +68,9 @@
         border: 2px solid #d63384;
       }
       .gallery-big img {
-        width: 300px;
-        height: 300px;
+        width: 100%;
+        max-width: 500px;
+        height: auto;
         object-fit: cover;
         border-radius: 10px;
         border: 2px solid #d63384;
@@ -67,6 +83,17 @@
     </style>
   </head>
   <body>
+    <!-- <audio autoplay loop>
+      <source src="./songs/princesinhaMandona.mp3" type="audio/mpeg" />
+      Seu navegador não suporta áudio HTML5.
+    </audio> -->
+    <button onclick="document.getElementById('bg-music').play()">Tocar Música</button>
+    <button onclick="document.getElementById('bg-music').pause()">Parar Música</button>
+    <audio id="bg-music" loop>
+      <source src="./songs/princesinhaMandona.mp3" type="audio/mpeg" />
+      Seu navegador não suporta áudio HTML5.
+    </audio>
+
     <div class="container">
       <h1>Para Karol, ou melhor minha alma gêmea</h1>
       <p>
@@ -74,6 +101,9 @@
         abraço e cada momento ao seu lado são preciosos para mim.
       </p>
       <p>Ou melhor, desde que te conheci pessoalmente, pois antes eu só ganhava bolos kkkkk</p>
+      <div class="gallery-big">
+        <img src="./images/primeiroDate.jpg" alt="Primeiro presente" />
+      </div>
       <p>
         Mas ainda bem que não desistimos de fazer esse date acontecer, pois foi o melhor encontro da
         minha vida. Nunca senti uma emoção tão forte, uma conexão inexplicável, como algo de outras
@@ -133,9 +163,9 @@
         Perdão por isso, e muito, muito, muito obrigado por ter ido me fazendo companhia com o seu
         sorriso perfeito!
       </p>
-      <div class="gallery">
-        <img src="sua-imagem2.jpg" alt="Viagem inesquecível 1" />
-        <img src="sua-imagem3.jpg" alt="Viagem inesquecível 2" />
+      <div class="gallery-big">
+        <img src="./images/segundoDate.jpg" alt="Segundo Date" />
+        <img src="./images/terceiroDate.jpg" alt="Terceiro Date" />
       </div>
     </div>
 
@@ -170,5 +200,28 @@
         <img src="sua-imagem6.jpg" alt="Momento feliz 3" />
       </div>
     </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const containers = document.querySelectorAll(".container");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+              }
+              // else{
+              //   entry.target.classList.remove("show");
+              // }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        containers.forEach((container) => {
+          observer.observe(container);
+        });
+      });
+    </script>
   </body>
 </html>
