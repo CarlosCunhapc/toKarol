@@ -80,6 +80,52 @@
         justify-content: space-between;
         align-items: center;
       }
+      .carousel-container {
+        width: 100%;
+        max-width: 600px;
+        overflow: hidden;
+        margin: 0 auto;
+        border-radius: 10px;
+        position: relative;
+        border: 2px solid #d63384;
+      }
+
+      .carousel {
+        display: flex;
+        width: 600%;
+        animation: slide 60s infinite linear;
+      }
+
+      .carousel img {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        object-fit: cover;
+      }
+
+      @keyframes slide {
+        0% {
+          transform: translateX(0%);
+        }
+        16.66% {
+          transform: translateX(-100%);
+        }
+        33.32% {
+          transform: translateX(-200%);
+        }
+        49.98% {
+          transform: translateX(-300%);
+        }
+        66.64% {
+          transform: translateX(-400%);
+        }
+        83.3% {
+          transform: translateX(-500%);
+        }
+        100% {
+          transform: translateX(0%);
+        }
+      }
     </style>
   </head>
   <body>
@@ -193,11 +239,96 @@
 
     <div class="container">
       <h2>Momentos Felizes</h2>
-      <p>Cada pequeno momento ao seu lado se torna uma grande lembrança.</p>
-      <div class="gallery">
-        <img src="sua-imagem4.jpg" alt="Momento feliz 1" />
-        <img src="sua-imagem5.jpg" alt="Momento feliz 2" />
-        <img src="sua-imagem6.jpg" alt="Momento feliz 3" />
+      <p>
+        E após isso começamos a viver maravilhosos momentos juntos, e cada dia me tornando mais
+        apaixonado por você, cada segundo ao seu lado me sinto nas nuvens...
+      </p>
+      <div class="carousel-container">
+        <div class="carousel">
+          <img src="./images/feliz.jpg" alt="Momento feliz 1" />
+          <img src="./images/feliz2.jpg" alt="Momento feliz 2" />
+          <img src="./images/feliz3.jpg" alt="Momento feliz 3" />
+          <img src="./images/engracada2.jpg" alt="Momento feliz 4" />
+          <img src="./images/feliz6.jpg" alt="Momento feliz 5" />
+          <img src="./images/feliz5.PNG" alt="Momento feliz 6" />
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>A primeira Separação</h2>
+      <div class="gallery-big">
+        <img src="./images/separacao.jpg" alt="Viagem inesquecível 1" />
+      </div>
+      <p>
+        Um pouco mais de 1 mês após começarmos a namorar, tivemos nossa primeira separação... Eu fui
+        visitar minha irmã e acabamos ficando longe um do outro por muitooo tempo (15 dias) kkkkk
+        Mas nesse tempo a quantidade de saudades que sentimos um do outro foi absurda, e foi aí que
+        percebemos que não conseguimos mais viver um sem o outro, e que queremos passar o resto de
+        nossas vidas juntos!
+      </p>
+      <div class="gallery-medium">
+        <!-- <img src="./images/pedido.jpg" alt="Viagem inesquecível 1" /> -->
+        <img src="./images/separacao2.mov" alt="Viagem inesquecível 2" />
+        <img src="./images/separacao3.mov" alt="Viagem inesquecível 2" />
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>Nossas 'brigas'</h2>
+      <p>
+        Até os momentos ruins são bons ao seu lado, pois vc me mostrou que podemos superar tudo
+        apenas conversando e nos entendendo, que não precisa de ficarmos sem nos falar por dias
+        (oque inclusive, nunca passamos NENHUM dia sem nos falarmos ), que podemos resolver tudo com
+        um simples diálogo, e isso é incrível, pois me faz te amar ainda mais! E me faz ter certeza
+        que quero passar o resto da minha vida ao seu lado, pois você é a pessoa que me faz feliz,
+        que me faz querer ser uma pessoa melhor, que me faz querer ser o melhor namorado do mundo!
+      </p>
+      <div class="gallery-medium">
+        <!-- <img src="./images/pedido.jpg" alt="Viagem inesquecível 1" /> -->
+        <img src="./images/cia.jpg" alt="Viagem inesquecível 2" />
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>2 anos de namoro</h2>
+      <div class="gallery-big">
+        <img src="./images/pedido.jpg" alt="Viagem inesquecível 1" />
+      </div>
+      <p>
+        Eu quis fazer esse site como um presente de 2 anos de namoro, é algo simples, mas acho que
+        vai gostar muito pois é algo que fiz com muito carinho, e que mostra um pouco do que sinto
+        por você, e do quanto você é importante para mim!
+      </p>
+      <div class="gallery-big">
+        <!-- <img src="./images/pedido.jpg" alt="Viagem inesquecível 1" /> -->
+        <img src="./images/pedido2.jpg" alt="Viagem inesquecível 2" />
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>FELIZ BODAS DE DEDO DE MOÇA</h1>
+      <div class="gallery-big">
+        <img src="./images/pedido.jpg" alt="Viagem inesquecível 1" />
+      </div>
+      <p>
+        Eu quero te agradecer pelo tanto que me faz feliz, pelo tanto que me faz querer ser uma
+        pessoa melhor, pelo tanto que me faz querer ser o melhor namorado do mundo, por me fazer
+        sentir o amor mais puro e verdadeiro que já senti na vida, por me fazer sentir o homem mais
+        sortudo do mundo por ter você ao meu lado. E te pedir desculpas por todos os meus erros e
+        falhas, agradecer por toda a paciência que tem comigo, todo o apoio que sempre me deu e sei
+        que sempre vai me dar!
+      </p>
+      <p>
+        Esse é apenas nosso começo! Ainda vamos viver TANTOS momentos incríveis juntos, quero que
+        conquistemos todos os nossos sonhos juntos, e que possamos sermos felizes para sempre!
+        Espero que goste dessa pequena homenagem que fiz para você, e volte aqui mais vezes, tanto
+        para rever, quanto para ver as novidades que vou colocar aqui para você!
+      </p>
+      <h2>Eu te amo mais que tudo minha princesa! E vou amar cada dia mais!</h2>
+      <div class="gallery-big">
+        <!-- <img src="./images/pedido.jpg" alt="Viagem inesquecível 1" /> -->
+        <img src="./images/pedido2.jpg" alt="Viagem inesquecível 2" />
       </div>
     </div>
 
