@@ -12,6 +12,34 @@
         margin: 0;
         padding: 0;
       }
+
+       /* Corações caindo */
+       @keyframes fall {
+        from {
+          transform: translateY(-10vh);
+        }
+        to {
+          transform: translateY(calc(100vh + 100px));
+        }
+      }
+      
+      .hearts-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .heart {
+        position: absolute;
+        top: -10vh;
+        color: #ff4d6d;
+        font-size: 20px;
+        animation: fall linear infinite;
+      }
       .container {
         max-width: 800px;
         margin: 20px auto;
@@ -23,6 +51,7 @@
         opacity: 0;
         transform: translateY(50px);
         transition: opacity 1s ease-out, transform 1s ease-out;
+        z-index: 10;
       }
       .show {
         opacity: 1;
@@ -54,15 +83,17 @@
         border: 2px solid #d63384;
       }
       .gallery-small img {
-        width: 90px;
-        height: 90px;
+        width: 100%;
+        max-width: 300px;
+        height: auto;
         object-fit: cover;
         border-radius: 10px;
         border: 2px solid #d63384;
       }
       .gallery-medium img {
-        width: 150px;
-        height: 150px;
+        width: 100%;
+        max-width: 300px;
+        height: auto;
         object-fit: cover;
         border-radius: 10px;
         border: 2px solid #d63384;
@@ -102,6 +133,14 @@
     height: auto;
     object-fit: cover;
   }
+  .music-container {
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffccd5;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+      }
 
   @keyframes slide {
     0% { transform: translateX(0%); }
@@ -119,12 +158,22 @@
       <source src="./songs/princesinhaMandona.mp3" type="audio/mpeg" />
       Seu navegador não suporta áudio HTML5.
     </audio> -->
-    <button onclick="document.getElementById('bg-music').play()">Tocar Música</button>
+    <!-- <button onclick="document.getElementById('bg-music').play()">Tocar Música</button>
     <button onclick="document.getElementById('bg-music').pause()">Parar Música</button>
     <audio id="bg-music" loop>
       <source src="./songs/princesinhaMandona.mp3" type="audio/mpeg" />
       Seu navegador não suporta áudio HTML5.
-    </audio>
+    </audio> -->
+    <div class="hearts-container"></div>
+    <div class="music-container">
+      <h2>Uma música que lembra a gente</h2>
+      <button onclick="document.getElementById('bg-music').play()">Tocar Música</button>
+      <button onclick="document.getElementById('bg-music').pause()">Parar Música</button>
+      <audio id="bg-music" loop>
+        <source src="./songs/princesinhaMandona.mp3" type="audio/mpeg" />
+        Seu navegador não suporta áudio HTML5.
+      </audio>
+    </div>
 
     <div class="container">
       <h1>Para Karol, ou melhor minha alma gêmea</h1>
@@ -252,8 +301,8 @@
       </p>
       <div class="gallery-medium">
         <!-- <img src="./images/pedido.jpg" alt="Viagem inesquecível 1" /> -->
-        <img src="./images/separacao2.mov" alt="Viagem inesquecível 2" />
-        <img src="./images/separacao3.mov" alt="Viagem inesquecível 2" />
+        <img src="./images/separacao4.jpg" alt="Viagem inesquecível 2" />
+        <img src="./images/separacao5.jpg" alt="Viagem inesquecível 2" />
       </div>
     </div>
 
@@ -274,7 +323,7 @@
     <div class="container">
       <h2>2 anos de namoro</h2>
       <div class="gallery-big">
-        <img src="./images/pedido.jpg" alt="Viagem inesquecível 1" />
+        <img src="./images/cia3.jpg" alt="Viagem inesquecível 1" />
       </div>
       <p>
         Eu quis fazer esse site como um presente de 2 anos de namoro, é algo simples, mas acho que vai gostar muito
@@ -282,14 +331,20 @@
       </p>
       <div class="gallery-big">
         <!-- <img src="./images/pedido.jpg" alt="Viagem inesquecível 1" /> -->
-        <img src="./images/pedido2.jpg" alt="Viagem inesquecível 2" />
+        <img src="./images/perfeicao.jpg" alt="Viagem inesquecível 2" />
       </div>
     </div>
 
     <div class="container">
-      <h1>FELIZ BODAS DE DEDO DE MOÇA</h1>
-      <div class="gallery-big">
-        <img src="./images/pedido.jpg" alt="Viagem inesquecível 1" />
+      <div class="flex">
+
+        <div class="gallery-small">
+          <img src="./images/boda.webp" alt="Primeiro presente" />
+        </div>
+        <h1>FELIZ BODAS DE DEDO DE MOÇA</h1>
+        <div class="gallery-small">
+          <img src="./images/boda.webp" alt="Primeiro presente" />
+        </div>
       </div>
       <p>
         Eu quero te agradecer pelo tanto que me faz feliz, pelo tanto que me faz querer ser uma pessoa melhor, pelo tanto que me faz querer ser o melhor namorado do mundo,
@@ -303,11 +358,31 @@
       <h2>Eu te amo mais que tudo minha princesa! E vou amar cada dia mais!</h2>
       <div class="gallery-big">
         <!-- <img src="./images/pedido.jpg" alt="Viagem inesquecível 1" /> -->
-        <img src="./images/pedido2.jpg" alt="Viagem inesquecível 2" />
+        <img src="./images/amor.jpg" alt="Viagem inesquecível 2" />
       </div>
     </div>
 
     <script>
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = Math.random() * 5 + 3 + "s";
+        heart.style.top = window.scrollY + "px";
+        document.querySelector(".hearts-container").appendChild(heart);
+
+        function checkHeartPosition() {
+          if (heart.getBoundingClientRect().top > window.innerHeight) {
+            heart.remove();
+          } else {
+            requestAnimationFrame(checkHeartPosition);
+          }
+        }
+        requestAnimationFrame(checkHeartPosition);
+      }
+
+      setInterval(createHeart, 200);
       document.addEventListener("DOMContentLoaded", function () {
         const containers = document.querySelectorAll(".container");
         const observer = new IntersectionObserver(
